@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import ResultsPage from './components/ResultsPage';
 
 function App() {
+  const [sugarContent, setSugarContent] = useState(null);
+  const [firmness, setFirmness] = useState(null);
+  const [tat, setTat] = useState(null);
+  const [ripeness, setRipeness] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage setSugarContent={setSugarContent} setFirmness={setFirmness} setTat={setTat} setRipeness={setRipeness}/>} />
+        <Route path="/results" element={<ResultsPage sugarContent={sugarContent} firmness={firmness} tat={tat} ripeness={ripeness} />} />
+      </Routes>
+    </Router>
   );
 }
 
