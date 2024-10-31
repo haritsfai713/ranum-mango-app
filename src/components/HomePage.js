@@ -1,12 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
   const [image, setImage] = useState(null);
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
   const navigate = useNavigate();
 
   // Function to handle image upload
@@ -14,32 +11,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
     setImage(URL.createObjectURL(event.target.files[0]));
   };
 
-  // Function to open the camera
-  const openCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      videoRef.current.srcObject = stream;
-      setIsCameraOpen(true);
-    } catch (err) {
-      console.error('Error accessing camera:', err);
-      alert('Unable to access camera.');
-    }
-  };
 
-  // Function to capture the image from the camera
-  const captureImage = () => {
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    
-    // Stop the camera stream after capturing
-    video.srcObject.getTracks().forEach(track => track.stop());
-    
-    const dataUrl = canvas.toDataURL('image/png');
-    setImage(dataUrl);
-    setIsCameraOpen(false);
-  };
 
   const handlePrediction = async () => {
     if (!image) {
@@ -63,7 +35,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
     const formData = new FormData();
     formData.append("file", file);
       console.log("Start to receive data")
-      const result = await axios.post('http://192.168.115.235:5000/predict', formData, {
+      const result = await axios.post('http://192.168.1.56:5000/predict', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log("Start to receive data")
@@ -76,56 +48,44 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
       navigate('/results');
     } catch (error) {
       console.error('Error fetching prediction:', error);
-      alert('Error predicting sugar content.');
+      alert('Gagal mendeteksi mangga.');
     }
   };
 
 
   return (
-    <body style={{background: 'linear-gradient(#D1D1AB, #519031)', height: '100vh'}}>
+    <body style={{background: 'linear-gradient(#D1D1AB, #519031)', height: '100vh', fontFamily: 'helvetica'}}>
 
     <div style={{ textAlign: 'center', paddingTop: '50px', color:'white', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
-      <h1 style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.4)'}}>RANUM</h1>
-      <h2 style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.4)'}}> Aplikasi Prediksi Kualitas Mangga Gedong Gincu Menggunakan Machine Learning</h2>
-      <p>Upload an image of a mango or capture one using your camera:</p>
+      <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding:'0px 20px', boxShadow:'0px 10px 15px rgba(0,0,0,0.1)', borderRadius: '40px', width:'200px'}}>
+        <h1 style={{color:'#58d07f'}}>🥭 RANUM</h1>
+        <h3 style={{color:'#888888', paddingTop:'16px'}}>v1</h3>
+      </div>
+      <p style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.4)'}}> Aplikasi Prediksi Kualitas Mangga Gedong Gincu Menggunakan Machine Learning</p>
+      <p style={{width: '70vw'}}>Upload an image of a mango or capture one using your camera:</p>
       
-      <div style={{textAlign: 'center', backgroundColor: 'rgba(160, 208, 181, 0.7)', width: '70%', padding:'20px', boxShadow:'0px 10px 25px rgba(0,0,0,0.2)', borderRadius: '15px'}}>
-
-      {!isCameraOpen && (
-        <>
-          <input type="file" accept="image/*" onChange={handleImageUpload} />
+      <div style={{textAlign: 'center', backgroundColor: 'rgba(160, 208, 181, 0.7)', width: '70vw', padding:'20px', boxShadow:'0px 10px 25px rgba(0,0,0,0.2)', borderRadius: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+          <input style={{marginTop: '20px', marginLeft: '70px' }} type="file" accept="image/*" onChange={handleImageUpload} />
+          {/* Display the selected/captured image */}
+          {image && (
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+              <h3>Selected Image</h3>
+              <img src={image} alt="Captured Mango" style={{ width: '40%', maxWidth: '400px', marginTop: '10px', height: 'auto', display: 'block' }} />
+            </div>
+          )}
           <br />
-          <button onClick={handlePrediction} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '15px'}}>
+          <button onClick={handlePrediction} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '15px', border: '2px solid', color: '#31b65d'}}>
             Predict Mango Quality
           </button>
           <br />
-          <button onClick={openCamera} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '15px' }}>
-            Use Camera
-          </button>
-        </>
-      )}
+
+      </div>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', bottom: '0', position: 'absolute', marginBottom: '10px'}}>
+        <img src="/logo_itb_1024.png" alt="Captured Mango" style={{ width: '70px', marginTop: '10px', height: 'auto', display: 'block' , margin: '10px'}} />
+        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '120px', marginTop: '10px', height: 'auto', display: 'block' }} />
       </div>
 
-      {isCameraOpen && (
-        <div>
-          <video ref={videoRef} autoPlay style={{ width: '100%', maxWidth: '400px' }}></video>
-          <br />
-          <button onClick={captureImage} style={{ marginTop: '20px', padding: '10px 20px' }}>
-            Capture Image
-          </button>
-        </div>
-      )}
 
-      {/* Canvas for capturing image from video */}
-      <canvas ref={canvasRef} style={{ display: 'none' }} width="400" height="300"></canvas>
-
-      {/* Display the selected/captured image */}
-      {image && (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-          <h3>Selected Image</h3>
-          <img src={image} alt="Captured Mango" style={{ width: '40%', maxWidth: '400px', marginTop: '10px', height: 'auto', display: 'block' }} />
-        </div>
-      )}
     </div>
     </body>
   );
