@@ -35,7 +35,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
     const formData = new FormData();
     formData.append("file", file);
       console.log("Start to receive data")
-      const result = await axios.post('http://192.168.1.56:5000/predict', formData, {
+      const result = await axios.post('https://ml-image-process-ranum.onrender.com:5000/predict', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log("Start to receive data")
