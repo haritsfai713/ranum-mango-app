@@ -74,11 +74,11 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
           {image && (
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
               <h3>Selected Image</h3>
-              <img src={image} alt="Captured Mango" style={{ width: '40%', maxWidth: '400px', marginTop: '10px', height: 'auto' }} />
+              <img src={image} alt="Captured Mango" style={{ width: '40%', maxHeight: '400px', marginTop: '5px', height: 'auto' }} />
             </div>
           )}
           <br />
-          <button onClick={handlePrediction} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '15px', border: '2px solid', color: '#31b65d'}}>
+          <button onClick={handlePrediction} style={{ marginTop: '10px', padding: '10px 20px', borderRadius: '15px', border: '2px solid', color: '#31b65d'}}>
             Predict Mango Quality
           </button>
           <br />
