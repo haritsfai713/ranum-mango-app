@@ -34,9 +34,9 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
       </div>
 
       <div style={{textAlign: 'center', color: '#FFFFFF', backgroundColor: 'rgba(160, 208, 181, 0.7)', padding:'20px', boxShadow:'0px 10px 25px rgba(0,0,0,0.2)', borderRadius: '30px', marginTop: '20px', width: '70vw'}}>
-      <h2 style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.3)', marginTop: '1px'}}>Tingkat Kematangan</h2>
+      <h2 style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.3)', marginTop: '1px', marginBottom:'5px'}}>Tingkat Kematangan</h2>
       {/* <p style={{ fontSize: '20px' }}>Ripeness Stage: <strong>{ripeness ? `${ripeness}` : 'N/A'}</strong></p> */}
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px'}}>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '0px'}}>
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '15px', marginRight: '5px'}}>
         {(ripeness === 0) ? (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)' }} />) : (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)', visibility: 'hidden' }} />)}
         {(ripeness === 3) ? (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)' }} />) : (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)', visibility: 'hidden' }} />)}
@@ -62,9 +62,9 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
         Back to Home
       </button>
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',margin: '10px 0'}}>
-        <img src="/logo_itb_1024.png" alt="Captured Mango" style={{ width: '70px', marginTop: '10px', height: 'auto', display: 'block' , margin: '10px'}} />
-        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '120px', marginTop: '10px', height: 'auto', display: 'block' }} />
-    </div>
+        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '100px', marginTop: '10px', height: 'auto', display: 'block' }} />
+        <img src="/Logo_FTMD_ITB.png" alt="Captured Mango" style={{ width: '150px', marginTop: '10px', height: 'auto', display: 'block', marginLeft:'10px' }} />
+      </div>
     </div>
 
     </body>

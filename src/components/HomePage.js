@@ -80,9 +80,9 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
           <br />
 
       </div>
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', bottom: '0', position: 'absolute', marginBottom: '10px'}}>
-        <img src="/logo_itb_1024.png" alt="Captured Mango" style={{ width: '70px', marginTop: '10px', height: 'auto', display: 'block' , margin: '10px'}} />
-        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '120px', marginTop: '10px', height: 'auto', display: 'block' }} />
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', bottom: '0', position: 'absolute', marginBottom: '0px'}}>
+        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '100px', marginTop: '10px', height: 'auto', display: 'block' }} />
+        <img src="/Logo_FTMD_ITB.png" alt="Captured Mango" style={{ width: '150px', marginTop: '10px', height: 'auto', display: 'block', marginLeft:'10px' }} />
       </div>
 
 
