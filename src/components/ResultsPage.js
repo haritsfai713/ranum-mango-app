@@ -9,8 +9,8 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
   };
 
   return (
-    <body style={{background: 'linear-gradient(#D1D1AB, #519031)', height: '100vh', color:'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'helvetica'}}>
-    <div style={{ textAlign: 'center', paddingTop: '5px', marginTop: '80px', marginBottom: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <body style={{background: 'linear-gradient(#D1D1AB, #519031)', height: '115vh', color:'white', fontFamily: 'helvetica'}}>
+    <div style={{ textAlign: 'center', paddingTop: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding:'0px 20px', boxShadow:'0px 10px 15px rgba(0,0,0,0.1)', borderRadius: '40px', width:'200px'}}>
         <h1 style={{color:'#58d07f'}}>🥭 RANUM</h1>
         <h3 style={{color:'#888888', paddingTop:'16px'}}>v1</h3>
@@ -45,15 +45,15 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
         {(ripeness === 2) ? (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)' }} />) : (<img src="/leaf.png" alt="Captured Mango" style={{ width: '10vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)', transform: 'rotate(90deg)', visibility: 'hidden' }} />)}
 
       </div>
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '10px', marginLeft: '20px', marginRight: '55px'}}>
-        <img src="/stage5.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
-        <img src="/stage4.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
-        <img src="/stage3.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
-        <img src="/stage2.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
-        <img src="/stage1.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '40px', marginTop: '10px', height: 'auto', display: 'block', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '10px', marginLeft: '20px', marginRight: '-80px'}}>
+        <img src="/stage5.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '35px', marginTop: '10px', height: 'auto', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+        <img src="/stage4.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '35px', marginTop: '10px', height: 'auto', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+        <img src="/stage3.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '35px', marginTop: '10px', height: 'auto', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+        <img src="/stage2.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '35px', marginTop: '10px', height: 'auto', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+        <img src="/stage1.png" alt="Captured Mango" style={{ width: '8vw', maxWidth: '35px', marginTop: '10px', height: 'auto', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
       </div>
-      <div style={{position: 'absolute', right:'30px'}}>
-        <img src="/gradient.png" alt="Captured Mango" style={{ width: '28vh', height: 'auto', display: 'block', transform: 'rotate(-90deg)', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
+      <div style={{ marginRight: '-80px'}}>
+        <img src="/gradient.png" alt="Captured Mango" style={{ width: '10vw', minWidth: '240px', height: 'auto', transform: 'rotate(-90deg)', filter: 'drop-shadow(0px 2px 2px #000000)' }} />
       </div>
       </div>
       </div>

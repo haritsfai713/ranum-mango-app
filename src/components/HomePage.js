@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../styles/loader.css';
 
 function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // Function to handle image upload
@@ -21,7 +23,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
 
     // const formData = new FormData();
     // formData.append('file', image);
-
+    setLoading(true); // Show loading animation
     try {
 
     // Fetch blob data from the blob URL
@@ -49,6 +51,8 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
     } catch (error) {
       console.error('Error fetching prediction:', error);
       alert('Gagal mendeteksi mangga.');
+    } finally {
+      setLoading(false); // Hide loading animation
     }
   };
 
@@ -56,7 +60,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
   return (
     <body style={{background: 'linear-gradient(#D1D1AB, #519031)', height: '100vh', fontFamily: 'helvetica'}}>
 
-    <div style={{ textAlign: 'center', paddingTop: '50px', color:'white', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
+    <div style={{ textAlign: 'center', paddingTop: '30px', color:'white', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '100%'}}>
       <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding:'0px 20px', boxShadow:'0px 10px 15px rgba(0,0,0,0.1)', borderRadius: '40px', width:'200px'}}>
         <h1 style={{color:'#58d07f'}}>🥭 RANUM</h1>
         <h3 style={{color:'#888888', paddingTop:'16px'}}>v1</h3>
@@ -70,7 +74,7 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
           {image && (
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
               <h3>Selected Image</h3>
-              <img src={image} alt="Captured Mango" style={{ width: '40%', maxWidth: '400px', marginTop: '10px', height: 'auto', display: 'block' }} />
+              <img src={image} alt="Captured Mango" style={{ width: '40%', maxWidth: '400px', marginTop: '10px', height: 'auto' }} />
             </div>
           )}
           <br />
@@ -78,12 +82,17 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
             Predict Mango Quality
           </button>
           <br />
+          {/* Show loading animation while loading */}
+          {loading && <div className="loader"></div>}
+
 
       </div>
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', bottom: '0', position: 'absolute', marginBottom: '0px'}}>
-        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '100px', marginTop: '10px', height: 'auto', display: 'block' }} />
-        <img src="/Logo_FTMD_ITB.png" alt="Captured Mango" style={{ width: '150px', marginTop: '10px', height: 'auto', display: 'block', marginLeft:'10px' }} />
+      <footer style={{ }}>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '0px', marginTop: '10px'}}>
+        <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '100px', marginTop: '10px', height: 'auto'}} />
+        <img src="/Logo_FTMD_ITB.png" alt="Captured Mango" style={{ width: '150px', marginTop: '10px', height: 'auto', marginLeft:'10px' }} />
       </div>
+      </footer>
 
 
     </div>

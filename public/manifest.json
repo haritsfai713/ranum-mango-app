@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "RANUM App",
+  "name": "Aplikasi prediksi kualitas mangga gedong gincu menggunakan machine learning",
   "icons": [
     {
       "src": "favicon.ico",
