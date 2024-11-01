@@ -66,20 +66,20 @@ function HomePage({ setSugarContent, setFirmness, setTat, setRipeness}) {
         <h3 style={{color:'#888888', paddingTop:'16px'}}>v1</h3>
       </div>
       <p style={{textShadow:'0px 4px 10px rgba(0, 0, 0, 0.4)'}}> Aplikasi Prediksi Kualitas Mangga Gedong Gincu Menggunakan Machine Learning</p>
-      <p style={{width: '70vw'}}>Upload an image of a mango or capture one using your camera:</p>
+      <p style={{width: '70vw'}}>Upload gambar mangga atau ambil foto menggunakan kamera:</p>
       
       <div style={{textAlign: 'center', backgroundColor: 'rgba(160, 208, 181, 0.7)', width: '70vw', padding:'20px', boxShadow:'0px 10px 25px rgba(0,0,0,0.2)', borderRadius: '30px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
           <input style={{marginTop: '20px', marginLeft: '70px' }} type="file" accept="image/*" onChange={handleImageUpload} />
           {/* Display the selected/captured image */}
           {image && (
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-              <h3>Selected Image</h3>
-              <img src={image} alt="Captured Mango" style={{ width: '40%', maxHeight: '400px', marginTop: '5px', height: 'auto' }} />
+              <h3>Gambar Terpilih</h3>
+              <img src={image} alt="Captured Mango" style={{ width: '60%', height: 'auto', maxHeight: '150px', marginTop: '5px' }} />
             </div>
           )}
           <br />
           <button onClick={handlePrediction} style={{ marginTop: '10px', padding: '10px 20px', borderRadius: '15px', border: '2px solid', color: '#31b65d'}}>
-            Predict Mango Quality
+            Prediksi Kualitas Mangga
           </button>
           <br />
           {/* Show loading animation while loading */}

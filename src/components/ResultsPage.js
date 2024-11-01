@@ -19,15 +19,15 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
 
       <h2 style={{textAlign: 'left', textShadow:'0px 4px 10px rgba(0, 0, 0, 0.3)', marginTop: '0px', marginBottom: '3px'}}>Metrik</h2>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems:'center'}}>
-        <p style={{ fontSize: '20px', margin:'4px 0' }}>Sugar Content: </p>
+        <p style={{ fontSize: '20px', margin:'4px 0' }}>Total Sukrosa: </p>
         <p style={{ fontSize: '20px', margin:'4px 0' }}><strong>{sugarContent ? `${sugarContent}%` : 'N/A'}</strong></p>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems:'center'}}>
-        <p style={{ fontSize: '20px', margin:'4px 0' }}>Firmness: </p>
+        <p style={{ fontSize: '20px', margin:'4px 0' }}>Kekerasan: </p>
         <p style={{ fontSize: '20px', margin:'4px 0' }}><strong>{firmness ? `${firmness}` : 'N/A'}</strong></p>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems:'center'}}>
-        <p style={{ fontSize: '20px', margin:'4px 0' }}>Total Acidic: </p>
+        <p style={{ fontSize: '20px', margin:'4px 0' }}>Total Asam: </p>
         <p style={{ fontSize: '20px', margin:'4px 0' }}><strong>{tat ? `${tat}` : 'N/A'}</strong></p>
       </div>
 
@@ -59,7 +59,7 @@ function ResultsPage({ sugarContent, firmness, tat, ripeness}) {
       </div>
 
       <button onClick={handleBack} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '15px', border: '2px solid', color: '#31b65d' }}>
-        Back to Home
+        Kembali
       </button>
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center',margin: '10px 0'}}>
         <img src="/Logo-SITH-22-FC.png" alt="Captured Mango" style={{ width: '100px', marginTop: '10px', height: 'auto', display: 'block' }} />
